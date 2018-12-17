@@ -140,7 +140,7 @@ function display(data) {
 
   const headerTitle = document.createElement('div')
   headerTitle.className = styles.headerTitle
-  headerTitle.innerText = 'Where are you?'
+  headerTitle.innerText = 'Where are we?'
 
   // create close button
   const closeButton = document.createElement('button')

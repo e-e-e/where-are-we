@@ -1,6 +1,6 @@
 # Where are we?
 
-Notify visitors to your website of where we might be.
+> Notify visitors to your website of where we might be.
 
 **Where are we?** is a tiny javascript widget that adds a dismissible banner to the bottom of your website to let visitors know who the traditional owners are of where ever they are located.
 
@@ -8,7 +8,8 @@ _Note:_ The information derived by this script is an estimation and should be en
 
 ## Installation
 
-(insert installation fragment)
+TODO: add instructions on installing on your website.
+`(insert installation fragment)`
 
 ## Why?
 
@@ -17,7 +18,7 @@ This project has the intention to raise awareness,
 - about indigenous nations within settler societies;
 - and how IP addresses are exploited to track location.
 
-Within the Australian context, [acknowledgement of country](https://www.reconciliation.org.au/wp-content/uploads/2017/11/Welcome-to-and-Acknowledgement-of-Country.pdf) is increasingly being understood as a small but important step towards ending the exclusion of Aboriginal and Torres Strait Islander people from Australian society. Within the arts many organisations are adding an acknowledgement of country to their websites. For example the [Museum of Contemporary Art Sydney](www.mca.com.au), [Liquid Architecture](https://liquidarchitecture.org.au/info), [Australian Centre for Contemporary Art](https://acca.melbourne/), [Firstdraft](https://firstdraft.org.au/), and many more. At [frontyard](www.frontyardprojects.org) we have also chosen to acknowledge the stolen land on which we are based. However, it has always seemed a bit uncomfortable to me in acknowledge place on a website that is hosted often in other lands (sometimes multiple simultaneously). How can we think about practices of acknowledgement in a way that considers the networked reality of the internet. Visitors are coming to your website from many places, each with their own particular histories, their own particular forgetings. **Where are we?** is an small experiment in broadening this practice of acknowledgement by trying to encourage visitors to think about their own placement, the histories and peoples there.
+Within the Australian context, [acknowledgement of country](https://www.reconciliation.org.au/wp-content/uploads/2017/11/Welcome-to-and-Acknowledgement-of-Country.pdf) is increasingly being understood as a small but important step towards ending the exclusion of Aboriginal and Torres Strait Islander people from Australian society. Within the arts many organisations are adding an acknowledgement of country to their websites. For example the [Museum of Contemporary Art Sydney](www.mca.com.au), [Liquid Architecture](https://liquidarchitecture.org.au/info), [Australian Centre for Contemporary Art](https://acca.melbourne/), [Firstdraft](https://firstdraft.org.au/), and many more. At [frontyard](www.frontyardprojects.org) we have also chosen to acknowledge the stolen land on which we are based. However, it has always seemed a bit uncomfortable to me to acknowledge place on a website that is hosted often in other lands (sometimes multiple simultaneously). How can we think about practices of acknowledgement in a way that considers the networked reality of the internet. Visitors are coming to your website from many places, each with their own particular histories, their own particular forgetings. **Where are we?** is an small experiment in broadening this practice of acknowledgement by trying to encourage visitors to think about their own placement, the histories and peoples there.
 
 ## How?
 

@@ -22,7 +22,7 @@ Within the Australian context, [acknowledgement of country](https://www.reconcil
 
 ## How?
 
-This script uses the visitors estimated longitude and latitude from their IP address to cross-reference the maps at [native-land.ca](https://native-land.ca/) to check for any possible traditional owners. Native-land.ca does not claim to represent or intend to represent the official or legal boundaries of any Indigenous nations. As a project it is intended to be engaged with critically and as an authoritative reference. Anyone seeking to learn about definitive boundaries should contact the indigenous group directly.
+This script uses the visitors estimated longitude and latitude from their IP address to cross-reference the maps at [native-land.ca](https://native-land.ca/) to check for any possible traditional owners. Native-land.ca does not claim to represent or intend to represent the official or legal boundaries of any Indigenous nations. As a project it is intended to be engaged with critically and **definitely not** as an authoritative reference. Anyone seeking to learn about definitive boundaries should contact the indigenous group directly.
 
 Locations derived from IP addresses are already inaccurate estimates, so this is multiplied in combination with the native-lands disclaimers. Any information presented from **Where are we?** will likely be inaccurate. It is intended as a prompt to start thinking about the histories of the land on which visitors stand, not to provide final answers.
 

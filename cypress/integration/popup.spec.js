@@ -36,5 +36,6 @@ describe('Where Are We - Popup', () => {
       'div',
       'Your IP indicates that you may be in Helsinki, Uusimaa, FI.'
     )
+    cy.percySnapshot('Where we are widget', { widths: [768, 992, 1200] })
   })
 })

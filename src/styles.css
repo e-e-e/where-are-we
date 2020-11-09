@@ -62,7 +62,7 @@
     rgba(255, 245, 255, 1) 100%
   ); */
   border: none;
-  border: solid 2px black;
+  border: solid 2px red;
   padding: 0;
   margin: 10px;
   transition: opacity 200ms ease-in;

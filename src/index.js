@@ -87,9 +87,7 @@ function renderLocationString(data) {
     return `${preface} on ${indigenousCountries}.`
   if (data.commonName && !indigenousCountries)
     return `${preface} in ${data.commonName}.`
-  return `${preface} on ${indigenousCountries}, other wise known as ${
-    data.commonName
-  }.`
+  return `${preface} on ${indigenousCountries}, other wise known as ${data.commonName}.`
 }
 
 function createLink(text, href) {
@@ -110,7 +108,7 @@ function appendDisclaimerNodesTo(node) {
     document.createTextNode(' cross-referenced by data from '),
     createLink('ipinfo.io', 'https://ipinfo.io/'),
     document.createTextNode(
-      `. This is not authoritative or representative and should be approached critically. 
+      `. This is not authoritative or representative and should be approached critically.
       Do you know who the traditional custodians are of the land on which you stand?`
     )
   ]
@@ -140,7 +138,7 @@ function display(data) {
 
   const headerTitle = document.createElement('div')
   headerTitle.className = styles.headerTitle
-  headerTitle.innerText = 'Where are we?'
+  headerTitle.innerText = 'Where'
 
   // create close button
   const closeButton = document.createElement('button')

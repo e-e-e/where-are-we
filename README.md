@@ -1,6 +1,7 @@
 # Where are we?
+[![Build Status](https://travis-ci.org/e-e-e/where-are-we.svg?branch=master)](https://travis-ci.org/e-e-e/where-are-we)
 
-> Notify visitors to your website of where we might be.
+> Notify visitors to your website of where they might be.
 
 **Where are we?** is a tiny javascript widget that adds a dismissible banner to the bottom of your website to let visitors know who the traditional owners are of where ever they are located.
 

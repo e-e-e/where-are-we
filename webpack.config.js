@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const pkg = require('./package.json')
 
 const devMode = process.env.NODE_ENV !== 'production'
@@ -18,7 +18,6 @@ module.exports = {
   },
   module: {
     rules: [
-
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
@@ -73,7 +72,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Where Am I',
       template: './src/index.html.ejs'

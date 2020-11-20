@@ -21,7 +21,7 @@
     "@percy/cypress": "^2.3.2",
     "autoprefixer": "^10.0.2",
     "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
+    "babel-loader": "^8.2.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
     "cypress": "^5.5.0",

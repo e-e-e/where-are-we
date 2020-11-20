@@ -6,7 +6,8 @@ const pkg = require('./package.json')
 const devMode = process.env.NODE_ENV !== 'production'
 module.exports = {
   mode: devMode ? 'development' : 'production',
-  entry: './src/index.js',
+  entry: './src/index.ts',
+  devtool: 'inline-source-map',
   output: {
     filename: `${pkg.name}.${pkg.version}.js`,
     path: path.resolve(__dirname, 'dist')
@@ -17,8 +18,9 @@ module.exports = {
   },
   module: {
     rules: [
+
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -37,6 +39,11 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,

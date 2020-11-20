@@ -7,7 +7,7 @@ import styles from './styles.css'
 const IP_API = 'https://ipinfo.io/json'
 const NATIVE_LAND_API = 'https://native-land.ca/api/index.php'
 
-function extractLngLat(data) {
+function extractLngLat(data: any) {
   if (!data) return
   if (!data.loc || typeof data.loc !== 'string') return
   const locArray = data.loc.split(',')
@@ -18,7 +18,7 @@ function extractLngLat(data) {
   }
 }
 
-function extractLocationString(data) {
+function extractLocationString(data: any) {
   if (!data) return
   if (!data.city && !data.region) return
   const strings = []
@@ -28,10 +28,12 @@ function extractLocationString(data) {
   return strings.join(', ')
 }
 
-function extractTerritories(data) {
+function extractTerritories(data: any) {
   console.log(data)
   if (!data || data.length === 0) return []
-  return data.map(t => t.properties && t.properties.Name).filter(t => !!t)
+  return data
+    .map((t: any) => t.properties && t.properties.Name)
+    .filter((t: any) => !!t)
 }
 
 function getLocationDataFromIp() {
@@ -43,7 +45,7 @@ function getLocationDataFromIp() {
     }))
 }
 
-function getTerritoriesFromLngLat(loc) {
+function getTerritoriesFromLngLat(loc: any) {
   if (!loc) return
   if (typeof loc.lng !== 'number') return
   if (typeof loc.lat !== 'number') return
@@ -72,7 +74,7 @@ function getPotentialLocations() {
     })
 }
 
-function territoriesToString(territories) {
+function territoriesToString(territories: any) {
   if (territories.length === 0) return
   if (territories.length === 1) return `${territories[0]} country`
   return `${territories.slice(0, -1).join(', ')} and/or ${
@@ -80,19 +82,17 @@ function territoriesToString(territories) {
   } country`
 }
 
-function renderLocationString(data) {
+function renderLocationString(data: any) {
   const indigenousCountries = territoriesToString(data.territories)
   const preface = 'Your IP indicates that you may be'
   if (!data.commonName && indigenousCountries)
     return `${preface} on ${indigenousCountries}.`
   if (data.commonName && !indigenousCountries)
     return `${preface} in ${data.commonName}.`
-  return `${preface} on ${indigenousCountries}, other wise known as ${
-    data.commonName
-  }.`
+  return `${preface} on ${indigenousCountries}, other wise known as ${data.commonName}.`
 }
 
-function createLink(text, href) {
+function createLink(text: any, href: any) {
   const link = document.createElement('a')
   link.href = href
   link.innerText = text
@@ -101,7 +101,7 @@ function createLink(text, href) {
   return link
 }
 
-function appendDisclaimerNodesTo(node) {
+function appendDisclaimerNodesTo(node: any) {
   const items = [
     document.createTextNode(
       'The information presented here is derived from the maps at '
@@ -117,7 +117,7 @@ function appendDisclaimerNodesTo(node) {
   items.forEach(item => node.appendChild(item))
 }
 
-function removeContainer(container) {
+function removeContainer(container: any) {
   if (container && container.style.opacity !== 0) {
     container.style.opacity = 0
     setTimeout(() => {
@@ -128,7 +128,7 @@ function removeContainer(container) {
   }
 }
 
-function display(data) {
+function display(data: any) {
   if (!data) return
   if (!data.territories.length && !data.commonName) return
   // create contianer
@@ -167,7 +167,7 @@ function display(data) {
   document.body.appendChild(container)
   // fade in
   setTimeout(() => {
-    container.style.opacity = 1
+    container.style.opacity = '1'
   }, 0)
 }
 

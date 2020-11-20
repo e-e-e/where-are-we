@@ -14,7 +14,7 @@ function extractLngLat(data: any) {
   if (locArray.length !== 2) return
   return {
     lat: parseFloat(locArray[0]),
-    lng: parseFloat(locArray[1])
+    lng: parseFloat(locArray[1]),
   }
 }
 
@@ -38,10 +38,10 @@ function extractTerritories(data: any) {
 
 function getLocationDataFromIp() {
   return fetch(IP_API)
-    .then(res => res.json())
-    .then(data => ({
+    .then((res) => res.json())
+    .then((data) => ({
       ...extractLngLat(data),
-      commonName: extractLocationString(data)
+      commonName: extractLocationString(data),
     }))
 }
 
@@ -52,9 +52,9 @@ function getTerritoriesFromLngLat(loc: any) {
   return fetch(
     `${NATIVE_LAND_API}?maps=territories&position=${loc.lat},${loc.lng}`
   )
-    .then(res => res.json())
+    .then((res) => res.json())
     .then(extractTerritories)
-    .catch(e => {
+    .catch((e) => {
       console.log(e)
       return []
     })
@@ -62,14 +62,14 @@ function getTerritoriesFromLngLat(loc: any) {
 
 function getPotentialLocations() {
   return getLocationDataFromIp()
-    .then(location =>
+    .then((location) =>
       Promise.all([location, getTerritoriesFromLngLat(location)])
     )
     .then(([location, territories]) => ({
       territories,
-      commonName: location.commonName
+      commonName: location.commonName,
     }))
-    .catch(e => {
+    .catch((e) => {
       console.log('Something when wrong', e)
     })
 }
@@ -112,9 +112,9 @@ function appendDisclaimerNodesTo(node: any) {
     document.createTextNode(
       `. This is not authoritative or representative and should be approached critically. 
       Do you know who the traditional custodians are of the land on which you stand?`
-    )
+    ),
   ]
-  items.forEach(item => node.appendChild(item))
+  items.forEach((item) => node.appendChild(item))
 }
 
 function removeContainer(container: any) {

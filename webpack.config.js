@@ -6,11 +6,11 @@ const pkg = require('./package.json')
 const devMode = process.env.NODE_ENV !== 'production'
 module.exports = {
   mode: devMode ? 'development' : 'production',
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
   devtool: 'inline-source-map',
   output: {
     filename: `${pkg.name}.${pkg.version}.js`,
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     contentBase: './dist',
@@ -26,18 +26,18 @@ module.exports = {
           options: {
             plugins: [
               '@babel/plugin-proposal-class-properties',
-              '@babel/plugin-transform-async-to-generator'
+              '@babel/plugin-transform-async-to-generator',
             ],
             presets: [
               [
                 '@babel/preset-env',
                 {
-                  targets: '> 0.25%, not dead'
-                }
-              ]
-            ]
-          }
-        }
+                  targets: '> 0.25%, not dead',
+                },
+              ],
+            ],
+          },
+        },
       },
       {
         test: /\.tsx?$/,
@@ -51,31 +51,31 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true
-            }
+              modules: true,
+            },
           },
-          'postcss-loader'
-        ]
+          'postcss-loader',
+        ],
       },
       {
         test: /\.(jpg|png)$/,
         use: {
-          loader: 'url-loader'
-        }
+          loader: 'url-loader',
+        },
       },
       {
         test: /\.svg$/,
         use: {
-          loader: 'raw-loader'
-        }
-      }
-    ]
+          loader: 'raw-loader',
+        },
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Where Am I',
-      template: './src/index.html.ejs'
-    })
-  ]
+      template: './src/index.html.ejs',
+    }),
+  ],
 }

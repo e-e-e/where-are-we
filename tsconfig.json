@@ -7,10 +7,12 @@
     "sourceMap": true,
     "strict": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
     "jsx": "react",
+    "jsxFactory": "Inactive.createElement",
+    "jsxFragmentFactory": "Inactive.Fragment",
     "allowJs": true,
     "typeRoots": [
       "node_modules/@types/",

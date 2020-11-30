@@ -90,7 +90,9 @@ function getLocationDataFromIp(): Promise<IpInfo | null> {
 function getTerritoriesFromLngLat(
   loc: LatLng
 ): Promise<NativeLandsResponseData> {
-  return fetch(`${NATIVE_LAND_API}?maps=territories&position=${loc.lat},${loc.lng}`)
+  return fetch(
+    `${NATIVE_LAND_API}?maps=territories&position=${loc.lat},${loc.lng}`
+  )
     .then((res) => res.json())
     .catch((e) => {
       console.error(e)
@@ -173,11 +175,17 @@ function Territories({ territories }: { territories: TerritoryInfo[] }) {
 
 function LocationDescription({ territories, commonName }: LocationInformation) {
   if (territories.length === 0) {
-    return `Your IP indicates that you may be in ${commonName}.*`
+    return (
+      <p className={styles.text}>
+        Your IP suggests that you may be in {commonName}. We cannot find
+        information about indigenous nations at this location, this does not
+        mean that there are not any.*
+      </p>
+    )
   }
   return (
     <p className={styles.text}>
-      Your IP indicates that you may be on{' '}
+      Your IP suggests that you may be on{' '}
       <Territories territories={territories} />, otherwise known as {commonName}
       .*
     </p>
@@ -200,17 +208,21 @@ function WhereAreWePopup({ data }: { data: LocationInformation }) {
   return (
     <div ref={ref} onEnter={fadeIn} className={styles.container}>
       <div className={styles.header}>
-        <div className={styles.headerTitle}>Where are we?</div>
-        <button
-          onClick={remove}
-          className={styles.closeButton}
-          innerHTML={closeSvg}
-        />
+        <div className={styles.content}>
+          <LocationDescription {...data} />
+        </div>
+        <div className={styles.buttons}>
+          <button
+            onClick={remove}
+            className={styles.closeButton}
+            innerHTML={closeSvg}
+          />
+        </div>
       </div>
-      <div className={styles.content}>
-        <LocationDescription {...data} />
+      <div className={styles.secondaryContent}>
         <p className={styles.disclaimer}>
-          *The information presented here is derived from the maps at{' '}
+          <span className={styles.astrix}>*</span>
+          The information presented here is derived from the maps at{' '}
           <a href="https://native-land.ca/" target="_blank">
             native-land.ca
           </a>{' '}
@@ -218,9 +230,18 @@ function WhereAreWePopup({ data }: { data: LocationInformation }) {
           <a href="https://ipinfo.io/" target="_blank">
             ipinfo.io
           </a>
-          . This is not authoritative or representative and should be approached
-          critically. Do you know who the traditional custodians are of the land
-          on which you stand?
+          . Note that this is based on your internet service providers location,
+          and may not be incorrect for your actual physical location. This is
+          not authoritative or representative and should be approached
+          critically. Learn more about this project on{' '}
+          <a href="https://github.com/e-e-e/where-are-we" target="_blank">
+            github
+          </a>
+          .
+        </p>
+        <p className={styles.disclaimer}>
+          Do you know who the traditional custodians are of the land on which
+          you stand?
         </p>
       </div>
     </div>
@@ -231,7 +252,7 @@ function display(data: LocationInformation | null) {
   if (!data) return
   if (!data.territories.length && !data.commonName) return
 
-  const container = document.createElement('div');
+  const container = document.createElement('div')
   document.body.append(container)
   Inactive.mount(container, <WhereAreWePopup data={data} />)
 }

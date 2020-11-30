@@ -90,9 +90,7 @@ function getLocationDataFromIp(): Promise<IpInfo | null> {
 function getTerritoriesFromLngLat(
   loc: LatLng
 ): Promise<NativeLandsResponseData> {
-  return fetch(
-    `${NATIVE_LAND_API}?maps=territories&position=${loc.lat},${loc.lng}`
-  )
+  return fetch(`${NATIVE_LAND_API}?maps=territories&position=${loc.lat},${loc.lng}`)
     .then((res) => res.json())
     .catch((e) => {
       console.error(e)
@@ -162,22 +160,26 @@ function Territories({ territories }: { territories: TerritoryInfo[] }) {
   return (
     <>
       {most.map((t) => (
-        <TerritoryLink territoryInfo={t} />
+        <>
+          <TerritoryLink territoryInfo={t} />,{' '}
+        </>
       ))}
-      and/ or <TerritoryLink territoryInfo={territories[0]} /> country
+      and/or{' '}
+      <TerritoryLink territoryInfo={territories[territories.length - 1]} />{' '}
+      country
     </>
   )
 }
 
 function LocationDescription({ territories, commonName }: LocationInformation) {
   if (territories.length === 0) {
-    return `Your IP indicates that you may be in ${commonName}.`
+    return `Your IP indicates that you may be in ${commonName}.*`
   }
   return (
     <p className={styles.text}>
       Your IP indicates that you may be on{' '}
       <Territories territories={territories} />, otherwise known as {commonName}
-      .
+      .*
     </p>
   )
 }
@@ -207,21 +209,19 @@ function WhereAreWePopup({ data }: { data: LocationInformation }) {
       </div>
       <div className={styles.content}>
         <LocationDescription {...data} />
-        {data.territories.length > 0 && (
-          <p className={styles.disclaimer}>
-            The information presented here is derived from the maps at{' '}
-            <a href="https://native-land.ca/" target="_blank">
-              native-land.ca
-            </a>{' '}
-            cross-referenced by data from{' '}
-            <a href="https://ipinfo.io/" target="_blank">
-              ipinfo.io
-            </a>
-            . This is not authoritative or representative and should be
-            approached critically. Do you know who the traditional custodians
-            are of the land on which you stand?
-          </p>
-        )}
+        <p className={styles.disclaimer}>
+          *The information presented here is derived from the maps at{' '}
+          <a href="https://native-land.ca/" target="_blank">
+            native-land.ca
+          </a>{' '}
+          cross-referenced by data from{' '}
+          <a href="https://ipinfo.io/" target="_blank">
+            ipinfo.io
+          </a>
+          . This is not authoritative or representative and should be approached
+          critically. Do you know who the traditional custodians are of the land
+          on which you stand?
+        </p>
       </div>
     </div>
   )
@@ -230,7 +230,10 @@ function WhereAreWePopup({ data }: { data: LocationInformation }) {
 function display(data: LocationInformation | null) {
   if (!data) return
   if (!data.territories.length && !data.commonName) return
-  Inactive.mount(document.body, <WhereAreWePopup data={data} />)
+
+  const container = document.createElement('div');
+  document.body.append(container)
+  Inactive.mount(container, <WhereAreWePopup data={data} />)
 }
 
 function init() {

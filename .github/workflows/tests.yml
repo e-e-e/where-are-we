@@ -16,4 +16,4 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
         run: |
           yarn install --frozen-lockfile
-          yarn test
+          yarn test:ci

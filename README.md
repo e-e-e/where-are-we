@@ -1,5 +1,5 @@
 # Where are we?
-[![Build Status](https://travis-ci.org/e-e-e/where-are-we.svg?branch=master)](https://travis-ci.org/e-e-e/where-are-we)
+![Tests](https://github.com/e-e-e/where-are-we/workflows/Tests/badge.svg)
 
 > Notify visitors to your website of where they might be.
 

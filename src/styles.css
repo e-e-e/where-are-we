@@ -55,12 +55,6 @@
   flex-direction: column;
   color: black;
   background: white;
-  /* background: linear-gradient(
-    95deg,
-    rgba(237, 248, 255, 1) 0%,
-    rgba(242, 250, 245, 1) 64%,
-    rgba(255, 245, 255, 1) 100%
-  ); */
   border: none;
   border: solid 2px black;
   padding: 0;

@@ -1,0 +1,16 @@
+name: Tests
+
+on: push
+
+jobs:
+  integration-tests:
+    name: Integration Tests With VisReg Reporting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      - run: npm install -g yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn test:ci

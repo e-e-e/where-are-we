@@ -145,7 +145,7 @@ function TerritoryLink({ territoryInfo }: { territoryInfo: TerritoryInfo }) {
       {territoryInfo.name}
     </a>
   ) : (
-    territoryInfo.name
+    <>{territoryInfo.name}</>
   )
 }
 
